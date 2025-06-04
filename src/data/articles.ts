@@ -21,10 +21,7 @@ export const articles: Article[] = [
         'School ends at three in the afternoon.',
         'I come home and do my homework.',
         'In the evening, I watch TV with my parents.',
-        'I go to bed at ten o\'clock.',
-        'This is my daily routine every weekday.',
-        'On weekends, I sleep until nine o\'clock.',
-        'I love spending time with my friends on Saturday.'
+        'I go to bed at ten o\'clock.'
       ],
       portuguese: [
         'Eu acordo às sete horas toda manhã.',
@@ -38,10 +35,7 @@ export const articles: Article[] = [
         'A escola termina às três da tarde.',
         'Eu volto para casa e faço minha lição de casa.',
         'À noite, eu assisto TV com meus pais.',
-        'Eu vou dormir às dez horas.',
-        'Esta é minha rotina diária todos os dias úteis.',
-        'Nos fins de semana, eu durmo até as nove horas.',
-        'Eu amo passar tempo com meus amigos no sábado.'
+        'Eu vou dormir às dez horas.'
       ]
     }
   },
@@ -87,6 +81,83 @@ export const articles: Article[] = [
       ]
     }
   },
+  {
+    id: 'beginner-3',
+    title: 'My Family',
+    excerpt: 'Learn vocabulary about family members and relationships.',
+    level: 'beginner',
+    content: {
+      english: [
+        'I have a wonderful family.',
+        'My father is a doctor.',
+        'My mother is a teacher.',
+        'I have one older brother.',
+        'His name is John and he is twenty years old.',
+        'I also have a younger sister.',
+        'Her name is Mary and she is fifteen.',
+        'We live in a big house.',
+        'Our house has four bedrooms.',
+        'We have a beautiful garden.',
+        'My grandmother visits us every Sunday.',
+        'We love spending time together.',
+        'Family is very important to me.'
+      ],
+      portuguese: [
+        'Eu tenho uma família maravilhosa.',
+        'Meu pai é médico.',
+        'Minha mãe é professora.',
+        'Eu tenho um irmão mais velho.',
+        'O nome dele é John e ele tem vinte anos.',
+        'Eu também tenho uma irmã mais nova.',
+        'O nome dela é Mary e ela tem quinze anos.',
+        'Nós moramos numa casa grande.',
+        'Nossa casa tem quatro quartos.',
+        'Nós temos um jardim bonito.',
+        'Minha avó nos visita todo domingo.',
+        'Nós amamos passar tempo juntos.',
+        'Família é muito importante para mim.'
+      ]
+    }
+  },
+  {
+    id: 'beginner-4',
+    title: 'Going Shopping',
+    excerpt: 'Essential phrases for shopping and buying things.',
+    level: 'beginner',
+    content: {
+      english: [
+        'I need to go shopping today.',
+        'First, I will go to the grocery store.',
+        'I need to buy milk, bread, and eggs.',
+        'Then I will visit the clothing store.',
+        'I want to buy a new shirt.',
+        'The shirt costs twenty dollars.',
+        'I think that is a good price.',
+        'The cashier is very friendly.',
+        'She helps me find my size.',
+        'I pay with my credit card.',
+        'She gives me the receipt.',
+        'I thank her and say goodbye.',
+        'Shopping is fun but tiring.'
+      ],
+      portuguese: [
+        'Eu preciso ir às compras hoje.',
+        'Primeiro, eu vou ao supermercado.',
+        'Eu preciso comprar leite, pão e ovos.',
+        'Então eu vou visitar a loja de roupas.',
+        'Eu quero comprar uma camisa nova.',
+        'A camisa custa vinte dólares.',
+        'Eu acho que é um bom preço.',
+        'A caixa é muito simpática.',
+        'Ela me ajuda a encontrar meu tamanho.',
+        'Eu pago com meu cartão de crédito.',
+        'Ela me dá o recibo.',
+        'Eu agradeço e me despeço.',
+        'Fazer compras é divertido mas cansativo.'
+      ]
+    }
+  },
+
   // Basic articles
   {
     id: 'basic-1',
@@ -130,6 +201,83 @@ export const articles: Article[] = [
       ]
     }
   },
+  {
+    id: 'basic-2',
+    title: 'Healthy Living',
+    excerpt: 'Tips for maintaining a healthy lifestyle.',
+    level: 'basic',
+    content: {
+      english: [
+        'Living a healthy life is very important.',
+        'We should eat fresh fruits and vegetables every day.',
+        'Drinking plenty of water keeps us hydrated.',
+        'Exercise is essential for our physical health.',
+        'I try to walk for thirty minutes daily.',
+        'Swimming is also a great form of exercise.',
+        'Getting enough sleep is crucial for our body.',
+        'We should sleep at least eight hours per night.',
+        'Stress can be harmful to our health.',
+        'Meditation helps me relax and feel better.',
+        'Reading books is good for mental health.',
+        'Spending time with friends makes us happy.',
+        'A healthy lifestyle leads to a longer life.'
+      ],
+      portuguese: [
+        'Viver uma vida saudável é muito importante.',
+        'Devemos comer frutas e vegetais frescos todos os dias.',
+        'Beber bastante água nos mantém hidratados.',
+        'Exercício é essencial para nossa saúde física.',
+        'Eu tento caminhar por trinta minutos diariamente.',
+        'Natação também é uma ótima forma de exercício.',
+        'Dormir o suficiente é crucial para nosso corpo.',
+        'Devemos dormir pelo menos oito horas por noite.',
+        'Estresse pode ser prejudicial à nossa saúde.',
+        'Meditação me ajuda a relaxar e me sentir melhor.',
+        'Ler livros é bom para a saúde mental.',
+        'Passar tempo com amigos nos deixa felizes.',
+        'Um estilo de vida saudável leva a uma vida mais longa.'
+      ]
+    }
+  },
+  {
+    id: 'basic-3',
+    title: 'Learning a New Language',
+    excerpt: 'The benefits and challenges of learning languages.',
+    level: 'basic',
+    content: {
+      english: [
+        'Learning a new language is an exciting adventure.',
+        'It opens doors to different cultures and people.',
+        'When we speak another language, we can travel more easily.',
+        'We can also understand foreign movies and books.',
+        'Language learning requires dedication and practice.',
+        'The most important thing is to practice every day.',
+        'Speaking with native speakers helps a lot.',
+        'Making mistakes is part of the learning process.',
+        'We should not be afraid to try new words.',
+        'Technology makes language learning easier today.',
+        'There are many apps and online resources available.',
+        'Patience is key when learning a new language.',
+        'The effort is worth it in the end.'
+      ],
+      portuguese: [
+        'Aprender uma nova língua é uma aventura emocionante.',
+        'Isso abre portas para diferentes culturas e pessoas.',
+        'Quando falamos outra língua, podemos viajar mais facilmente.',
+        'Também podemos entender filmes e livros estrangeiros.',
+        'Aprender idiomas requer dedicação e prática.',
+        'O mais importante é praticar todos os dias.',
+        'Falar com falantes nativos ajuda muito.',
+        'Cometer erros faz parte do processo de aprendizado.',
+        'Não devemos ter medo de tentar palavras novas.',
+        'A tecnologia torna o aprendizado de idiomas mais fácil hoje.',
+        'Há muitos aplicativos e recursos online disponíveis.',
+        'Paciência é fundamental ao aprender uma nova língua.',
+        'O esforço vale a pena no final.'
+      ]
+    }
+  },
+
   // Intermediate articles
   {
     id: 'intermediate-1',
@@ -173,7 +321,50 @@ export const articles: Article[] = [
       ]
     }
   },
-  // Advanced articles
+  {
+    id: 'intermediate-2',
+    title: 'Social Media and Modern Communication',
+    excerpt: 'How digital platforms are changing the way we communicate.',
+    level: 'intermediate',
+    content: {
+      english: [
+        'Social media has transformed human communication dramatically.',
+        'Platforms like Facebook and Instagram connect people worldwide.',
+        'We can instantly share photos, thoughts, and experiences.',
+        'However, this constant connectivity has both benefits and drawbacks.',
+        'On one hand, we stay connected with friends and family.',
+        'We can also discover new ideas and different perspectives.',
+        'Social media enables businesses to reach customers directly.',
+        'On the other hand, excessive use can lead to addiction.',
+        'Many people experience anxiety when separated from their devices.',
+        'Privacy concerns have become increasingly important.',
+        'Fake news spreads rapidly through social networks.',
+        'Digital literacy is essential in today\'s information age.',
+        'We must learn to evaluate sources critically.',
+        'Balance is key to maintaining healthy digital habits.',
+        'Technology should enhance, not replace, real-world relationships.'
+      ],
+      portuguese: [
+        'A mídia social transformou dramaticamente a comunicação humana.',
+        'Plataformas como Facebook e Instagram conectam pessoas no mundo todo.',
+        'Podemos compartilhar instantaneamente fotos, pensamentos e experiências.',
+        'No entanto, essa conectividade constante tem benefícios e desvantagens.',
+        'Por um lado, permanecemos conectados com amigos e família.',
+        'Também podemos descobrir novas ideias e perspectivas diferentes.',
+        'A mídia social permite que empresas alcancem clientes diretamente.',
+        'Por outro lado, o uso excessivo pode levar ao vício.',
+        'Muitas pessoas sentem ansiedade quando separadas de seus dispositivos.',
+        'Preocupações com privacidade se tornaram cada vez mais importantes.',
+        'Notícias falsas se espalham rapidamente através de redes sociais.',
+        'Alfabetização digital é essencial na era da informação atual.',
+        'Devemos aprender a avaliar fontes criticamente.',
+        'Equilíbrio é fundamental para manter hábitos digitais saudáveis.',
+        'A tecnologia deve melhorar, não substituir, relacionamentos do mundo real.'
+      ]
+    }
+  },
+
+  // Advanced articles  
   {
     id: 'advanced-1',
     title: 'Climate Change and Global Economics',
@@ -216,6 +407,7 @@ export const articles: Article[] = [
       ]
     }
   },
+
   // Fluent articles
   {
     id: 'fluent-1',
