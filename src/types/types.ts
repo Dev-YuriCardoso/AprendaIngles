@@ -57,3 +57,17 @@ export interface Article {
     portuguese: string[];
   };
 }
+
+export interface VideoLesson {
+  id: string;
+  title: string;
+  description: string;
+  level: Level;
+  youtubeId: string;
+  duration: string;
+  thumbnail: string;
+  subtitles: {
+    english: string[];
+    portuguese: string[];
+  };
+}

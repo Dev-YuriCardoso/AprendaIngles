@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { phrases } from '../data/phrases';
 import { storage } from '../utils/storage';
 import { calculateNextReview, getDueCards } from '../utils/spacedRepetition';
-import { UserProgress, Difficulty, Level, Article } from '../types/types';
+import { UserProgress, Difficulty, Level, Article, VideoLesson } from '../types/types';
 import StudyCard from '../components/StudyCard';
 import UserStats from '../components/UserStats';
 import LevelSelector from '../components/LevelSelector';
@@ -13,7 +13,9 @@ import Banner from '../components/Banner';
 import InfoSection from '../components/InfoSection';
 import ArticlesSection from '../components/ArticlesSection';
 import ArticlePage from '../components/ArticlePage';
-import { LogOut, User, BookOpen, Settings } from 'lucide-react';
+import VideoLessonsSection from '../components/VideoLessonsSection';
+import VideoLessonPage from '../components/VideoLessonPage';
+import { LogOut, User, BookOpen, Settings, Play } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 
 const Index = () => {
@@ -22,8 +24,9 @@ const Index = () => {
   const [currentPhrases, setCurrentPhrases] = useState(phrases.filter(p => p.level === 'beginner'));
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
-  const [showStudy, setShowStudy] = useState(false);
+  const [activeSection, setActiveSection] = useState<'study' | 'articles' | 'videos'>('articles');
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<VideoLesson | null>(null);
   const [sessionStats, setSessionStats] = useState({ studied: 0, correct: 0 });
 
   useEffect(() => {
@@ -134,9 +137,22 @@ const Index = () => {
     setSelectedArticle(null);
   };
 
+  const handleVideoClick = (video: VideoLesson) => {
+    setSelectedVideo(video);
+  };
+
+  const handleCloseVideo = () => {
+    setSelectedVideo(null);
+  };
+
   // Show article page if an article is selected
   if (selectedArticle) {
     return <ArticlePage article={selectedArticle} onClose={handleCloseArticle} />;
+  }
+
+  // Show video lesson page if a video is selected
+  if (selectedVideo) {
+    return <VideoLessonPage video={selectedVideo} onClose={handleCloseVideo} />;
   }
 
   if (!user) {
@@ -185,16 +201,41 @@ const Index = () => {
                 Olá, {user.name}! Nível: <span className="font-medium capitalize">{user.currentLevel}</span>
               </span>
               
-              <button
-                onClick={() => setShowStudy(!showStudy)}
-                className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                  showStudy 
-                    ? 'bg-blue-600 text-white' 
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {showStudy ? 'Ver Artigos' : 'Estudar'}
-              </button>
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => setActiveSection('study')}
+                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                    activeSection === 'study' 
+                      ? 'bg-blue-600 text-white' 
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  Estudar
+                </button>
+                
+                <button
+                  onClick={() => setActiveSection('videos')}
+                  className={`px-4 py-2 rounded-lg font-medium transition-colors flex items-center space-x-1 ${
+                    activeSection === 'videos' 
+                      ? 'bg-red-600 text-white' 
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  <Play className="w-4 h-4" />
+                  <span>Aulas em Vídeo</span>
+                </button>
+                
+                <button
+                  onClick={() => setActiveSection('articles')}
+                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                    activeSection === 'articles' 
+                      ? 'bg-purple-600 text-white' 
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  Artigos
+                </button>
+              </div>
               
               <button
                 onClick={() => setShowSettings(!showSettings)}
@@ -215,7 +256,7 @@ const Index = () => {
       </header>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {showStudy ? (
+        {activeSection === 'study' ? (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Study Area */}
             <div className="lg:col-span-2 space-y-6">
@@ -280,6 +321,10 @@ const Index = () => {
             <div className="lg:col-span-1">
               <UserStats />
             </div>
+          </div>
+        ) : activeSection === 'videos' ? (
+          <div className="space-y-8">
+            <VideoLessonsSection onVideoClick={handleVideoClick} />
           </div>
         ) : (
           <div className="space-y-8">
