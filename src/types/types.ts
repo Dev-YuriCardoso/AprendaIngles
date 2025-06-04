@@ -23,7 +23,7 @@ export interface Phrase {
   portuguese: string;
   level: Level;
   audioUrl?: string;
-  complementaryText: {
+  complementaryText?: {
     english: string[];
     portuguese: string[];
   };
@@ -45,4 +45,15 @@ export interface StudySession {
   phrasesStudied: number;
   correctAnswers: number;
   sessionDate: Date;
+}
+
+export interface Article {
+  id: string;
+  title: string;
+  excerpt: string;
+  level: Level;
+  content: {
+    english: string[];
+    portuguese: string[];
+  };
 }
