@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Phrase, Difficulty } from '../types/types';
-import { Volume2, RotateCcw } from 'lucide-react';
+import { Volume2, RotateCcw, FileText } from 'lucide-react';
 
 interface StudyCardProps {
   phrase: Phrase;
@@ -38,8 +38,18 @@ const StudyCard: React.FC<StudyCardProps> = ({ phrase, onDifficultySelect, onNex
     speechSynthesis.speak(utterance);
   };
 
+  const playComplementaryAudio = () => {
+    // Text-to-speech for complementary text
+    const fullText = phrase.complementaryText.english.join(' ');
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.7;
+    speechSynthesis.speak(utterance);
+  };
+
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="w-full max-w-4xl mx-auto space-y-6">
+      {/* Main Card */}
       <div className="relative h-80 perspective-1000">
         <div 
           className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d cursor-pointer ${
@@ -125,6 +135,47 @@ const StudyCard: React.FC<StudyCardProps> = ({ phrase, onDifficultySelect, onNex
                 </div>
               )}
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Complementary Content */}
+      <div className="bg-white rounded-xl shadow-lg p-6 space-y-6">
+        <div className="flex items-center space-x-2 text-gray-700 mb-4">
+          <FileText className="w-5 h-5" />
+          <h3 className="text-lg font-semibold">Texto Complementar</h3>
+        </div>
+
+        {/* English Text */}
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <h4 className="text-md font-medium text-gray-800">English:</h4>
+            <button
+              onClick={playComplementaryAudio}
+              className="flex items-center space-x-1 bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-lg text-sm transition-colors"
+            >
+              <Volume2 className="w-4 h-4" />
+              <span>Ouvir</span>
+            </button>
+          </div>
+          <div className="bg-blue-50 rounded-lg p-4 space-y-2">
+            {phrase.complementaryText.english.map((line, index) => (
+              <p key={index} className="text-gray-700 leading-relaxed">
+                {line}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        {/* Portuguese Translation */}
+        <div className="space-y-3">
+          <h4 className="text-md font-medium text-gray-800">Português:</h4>
+          <div className="bg-green-50 rounded-lg p-4 space-y-2">
+            {phrase.complementaryText.portuguese.map((line, index) => (
+              <p key={index} className="text-gray-700 leading-relaxed">
+                {line}
+              </p>
+            ))}
           </div>
         </div>
       </div>

@@ -23,6 +23,10 @@ export interface Phrase {
   portuguese: string;
   level: Level;
   audioUrl?: string;
+  complementaryText: {
+    english: string[];
+    portuguese: string[];
+  };
 }
 
 export interface UserProgress {
